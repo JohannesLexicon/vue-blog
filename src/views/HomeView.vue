@@ -5,7 +5,7 @@
       :key="post.id"
     >
       <header>
-        <router-link :to="'/blog/' + post.id">{{ post.title }}</router-link>
+        <router-link :to="'/' + post.id">{{ post.title }}</router-link>
       </header>
       <p>
         {{ post.content }}
