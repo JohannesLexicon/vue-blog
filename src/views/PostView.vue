@@ -1,8 +1,12 @@
 <template>
-  <div>
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.content }}</p>
-  </div>
+  <article>
+    <header>
+      <h1>{{ post.title }}</h1>
+    </header>
+    <div>
+      <p>{{ post.content }}</p>
+    </div>
+  </article>
 </template>
 
 <script setup>

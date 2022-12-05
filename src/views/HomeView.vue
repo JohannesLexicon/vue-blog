@@ -8,10 +8,11 @@
         <h2>
           <router-link :to="'/' + post.id">{{ post.title }}</router-link>
         </h2>
+        <p>
+          <span>{{ post.snippet }}</span>
+          <span>...</span>
+        </p>
       </header>
-      <section>
-        <p>{{ post.snippet }}...</p>
-      </section>
     </li>
   </ul>
 </template>
