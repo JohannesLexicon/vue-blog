@@ -1,6 +1,10 @@
 <template>
-  <nav class="d-flex justify-content-center">
-    <router-link to="/">home</router-link>
+  <nav>
+    <header>
+      <h1>
+        <router-link to="/">Home</router-link>
+      </h1>
+    </header>
   </nav>
 </template>
 

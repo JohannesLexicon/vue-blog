@@ -5,9 +5,13 @@
       :key="post.id"
     >
       <header>
-        <router-link :to="'/' + post.id">{{ post.title }}</router-link>
+        <h2>
+          <router-link :to="'/' + post.id">{{ post.title }}</router-link>
+        </h2>
       </header>
-      <p>{{ post.snippet }}...</p>
+      <section>
+        <p>{{ post.snippet }}...</p>
+      </section>
     </li>
   </ul>
 </template>
