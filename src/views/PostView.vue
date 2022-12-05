@@ -7,12 +7,11 @@
 
 <script setup>
 import { useRoute } from 'vue-router';
-import { reactive } from 'vue';
 import * as db from '@/data/db.js';
 
 const route = useRoute();
 
-const post = reactive(db.get(route.params.id));
+const post = db.get(route.params.id);
 </script>
 
 <style scoped></style>
