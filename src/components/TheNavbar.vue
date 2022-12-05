@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="d-flex justify-content-center">
     <router-link to="/">home</router-link>
   </nav>
 </template>

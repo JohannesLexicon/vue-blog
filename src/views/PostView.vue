@@ -1,9 +1,7 @@
 <template>
-  <div class="center">
-    <div>
-      <h1>{{ post.id }}</h1>
-      <p>{{ post.content }}</p>
-    </div>
+  <div>
+    <h1>{{ post.id }}</h1>
+    <p>{{ post.content }}</p>
   </div>
 </template>
 

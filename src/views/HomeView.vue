@@ -4,9 +4,7 @@
       v-for="post in posts"
       :key="post.id"
     >
-      <header>
-        <router-link :to="'/' + post.id">{{ post.title }}</router-link>
-      </header>
+      <router-link :to="'/' + post.id">{{ post.title }}</router-link>
       <p>
         {{ post.content }}
       </p>
@@ -19,7 +17,7 @@ import { RouterLink } from 'vue-router';
 import { reactive } from 'vue';
 import * as db from '@/data/db.js';
 
-const posts = reactive(db.getAll(2));
+const posts = reactive(db.getAll(20));
 </script>
 
 <style scoped></style>

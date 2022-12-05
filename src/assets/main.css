@@ -8,7 +8,14 @@ body {
     Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.center {
+.d-flex {
   display: flex;
+}
+
+.justify-content-center {
   justify-content: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
 }
