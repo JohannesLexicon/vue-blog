@@ -18,10 +18,15 @@
 </template>
 
 <script setup>
+import { onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import * as db from '@/data/db.js';
 
-const posts = db.getAllSnippets(20);
+const posts = ref([]);
+
+onMounted(async () => {
+  posts.value = await db.getAllSnippets(20);
+});
 </script>
 
 <style scoped></style>
