@@ -17,9 +17,4 @@ const route = useRoute();
 const post = reactive(db.get(route.params.id));
 </script>
 
-<style scoped>
-.center {
-  display: flex;
-  justify-content: center;
-}
-</style>
+<style scoped></style>
