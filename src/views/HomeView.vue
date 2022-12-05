@@ -20,7 +20,7 @@
 import { RouterLink } from 'vue-router';
 import * as db from '@/data/db.js';
 
-const posts = db.getAll(20);
+const posts = db.getAllSnippets(20);
 </script>
 
 <style scoped></style>

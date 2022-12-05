@@ -31,15 +31,13 @@ const posts = [
   },
 ];
 
-export const getAll = (snippetLength) =>
-  !snippetLength
-    ? posts
-    : posts.map((post) => {
-        return {
-          id: post.id,
-          title: post.title,
-          snippet: post.content.substring(0, snippetLength).trim(),
-        };
-      });
+export const getAllSnippets = (snippetLength) =>
+  posts.map((post) => {
+    return {
+      id: post.id,
+      title: post.title,
+      snippet: post.content.substring(0, snippetLength).trim(),
+    };
+  });
 
 export const get = (id) => posts.find((post) => post.id === id);
