@@ -1,13 +1,8 @@
-const posts = [
+/* const posts = [
   {
     id: '1',
     title: 'Gain alignment',
     body: "Overcome key issues to meet key milestones we don't need to boil the ocean here. Data-point this proposal is a win-win situation which will cause a stellar paradigm shift, and produce a multi-fold increase in deliverables, so organic growth, but the horse is out of the barn can you put it into a banner that is not alarming, but eye catching and not too giant we are running out of runway. My grasp on reality right now is tenuous. Tbrand terrorists. Dog and pony show feature creep. Quarterly sales are at an all-time low it's not hard guys, and sorry i was triple muted today shall be a cloudy day, thanks to blue sky thinking, we can now deploy our new ui to the cloud , yet upstream selling. Face time productize three-martini lunch. Move the needle they have downloaded gmail and seems to be working for now, so downselect, mumbo jumbo high touch client. Drive awareness to increase engagement i called the it department about that ransomware because of the old antivirus, but he said that we were using avast 2021 can we jump on a zoom quick-win, and weâ€™re starting to formalize flexible opinions around our foundations, but run it up the flagpole we need evergreen content. Hire the best radical candor we need evergreen content even dead cats bounce golden goose. Let me know if you need me to crack any skulls horsehead offer killing it, yet circle back around fire up your browser target rich environment collaboration through advanced technlogy. We need to get the vernacular right we need a recap by eod, cob or whatever comes first, post launch, for crisp ppt, or note for the previous submit: the devil should be on the left shoulder tribal knowledge. Eat our own dog food nail jelly to the hothouse wall run it up the flag pole, but that is a good problem to have win-win-win we need to have a Come to Jesus meeting with Phil about his attitude. Collaboration through advanced technlogy 360 degree content marketing pool this is not the hill i want to die on, but window-licker churning anomalies, yet this medium needs to be more dynamic, for punter. We need to harvest synergy effects we've got to manage that low hanging fruit make it look like digital dogpile that, for talk to the slides, so but what's the real problem we're trying to solve here?. Rock Star/Ninja. Minimize backwards overflow my capacity is full.",
-  },
-  {
-    id: '2',
-    title: 'Prethink',
-    body: "Manage expectations pushback, nor we need to start advertising on social media, and zoom meeting at 2:30 today. Focus on the customer journey beef up back-end of third quarter, yet tiger team no scraps hit the floor, are we in agreeance. Run it up the flagpole where do we stand on the latest client ask, but you better eat a reality sandwich before you walk back in that boardroom race without a finish line deploy to production, so i also believe it's important for every member to be involved and invested in our company and this is one way to do so. Please advise soonest we've got to manage that low hanging fruit we need to touch base off-line before we fire the new ux experience, yet overcome key issues to meet key milestones. Rehydrate the team helicopter view. Let's put a pin in that move the needle, nor my grasp on reality right now is tenuous, so let's pressure test this. Shelfware curate start procrastinating 2 hours get to do work while procrastinating open book pretend to read while manager stands and watches silently nobody is looking quick do your web search manager caught you and you are fured, or wheelhouse, and thought shower prioritize these line items window of opportunity. No scraps hit the floor level the playing field, or marginalised key performance indicators, and circle back. Sorry i was triple muted your work on this project has been really impactful, for synergize productive mindfulness strategic fit, but who's responsible for the ask for this request? this medium needs to be more dynamic. Time to open the kimono big data, so imagineer turn the ship, for i have a hard stop in an hour and half, or big picture on-brand but completeley fresh. Those options are already baked in with this model after I ran into Helen at a restaurant, I realized she was just office pretty, currying favour. We're ahead of the curve on that one forcing function this is not the hill i want to die on prethink. Cta. Open door policy what are the expectations, i also believe it's important for every member to be involved and invested in our company and this is one way to do so face time. Vertical integration. We've bootstrapped the model. I also believe it's important for every member to be involved and invested in our company and this is one way to do so the closest elephant is the most dangerous, so we need to socialize the comms with the wider stakeholder community a set of certitudes based on deductions founded on false premise if you want to motivate these clowns, try less carrot and more stick, so up the flagpole bazooka that run it past the boss jump right in and banzai attack will they won't they its all greek to me unless they bother until the end of time maybe vis a vis too many cooks over the line. Three-martini lunch good optics, and we're ahead of the curve on that one the right info at the right time to the right people. Are we in agreeance. Touch base i am dead inside pig in a python, for upsell, or touch base nail it down, for can I just chime in on that one. That's not on the roadmap ladder up / ladder back to the strategy, or level the playing field you gotta smoke test your hypothesis, translating our vision of having a market leading platfrom, so workflow ecosystem, for programmatically. Productize can you slack it to me?, so run it up the flagpole, but workflow ecosystem, but translating our vision of having a market leading platfrom. Vec deploy. Get buy-in.",
   },
   {
     id: '3',
@@ -26,7 +21,9 @@ const posts = [
   },
 ];
 
-/* export const getAllSnippets = (snippetLength) =>
+export const get = (id) => posts.find((post) => post.id === id);
+
+export const getAllSnippets = (snippetLength) =>
   posts.map((post) => {
     return {
       id: post.id,
@@ -35,21 +32,29 @@ const posts = [
     };
   }); */
 
-export const getAllSnippets = async (snippetLength) => {
-  const posts = await fetch('https://jsonplaceholder.typicode.com/posts').then((response) =>
-    response.json()
-  );
+export const getSnippets = async (snippetLength) => {
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts');
 
-  return posts.map((post) => {
+  const posts = await response.json();
+
+  const snippets = posts.map((post) => {
     return {
       id: post.id,
       title: post.title,
       snippet: post.body.substring(0, snippetLength).trim(),
     };
   });
+
+  return snippets;
 };
 
-//export const get = (id) => posts.find((post) => post.id === id);
-
-export const get = async (id) =>
-  fetch('https://jsonplaceholder.typicode.com/posts/' + id).then((response) => response.json());
+export const findPost = async (id) =>
+  fetch('https://jsonplaceholder.typicode.com/posts/' + id).then((response) =>
+    response.json().then((post) => {
+      return {
+        id: post.id,
+        title: post.title,
+        body: post.body,
+      };
+    })
+  );

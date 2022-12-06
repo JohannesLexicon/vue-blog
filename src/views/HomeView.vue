@@ -4,15 +4,13 @@
       v-for="post in posts"
       :key="post.id"
     >
-      <header>
-        <h2>
-          <router-link :to="'/' + post.id">{{ post.title }}</router-link>
-        </h2>
-        <p>
-          <span>{{ post.snippet }}</span>
-          <span>...</span>
-        </p>
-      </header>
+      <h2>
+        <router-link :to="'/' + post.id">{{ post.title }}</router-link>
+      </h2>
+      <p>
+        <span>{{ post.snippet }}</span>
+        <span>...</span>
+      </p>
     </li>
   </ul>
 </template>
@@ -20,12 +18,12 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
-import * as db from '@/data/db.js';
+import { getSnippets } from '@/data/db.js';
 
 const posts = ref([]);
 
 onMounted(async () => {
-  posts.value = await db.getAllSnippets(20);
+  posts.value = await getSnippets(20);
 });
 </script>
 

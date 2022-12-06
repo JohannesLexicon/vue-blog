@@ -1,11 +1,9 @@
 <template>
-  <header>
-    <nav>
-      <h1>
-        <router-link to="/">Home</router-link>
-      </h1>
-    </nav>
-  </header>
+  <nav>
+    <h1>
+      <router-link to="/">Home</router-link>
+    </h1>
+  </nav>
 </template>
 
 <script setup>
