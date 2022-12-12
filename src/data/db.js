@@ -1,4 +1,4 @@
-/* const posts = [
+const posts = [
   {
     id: '1',
     title: 'Gain alignment',
@@ -21,7 +21,7 @@
   },
 ];
 
-export const get = (id) => posts.find((post) => post.id === id);
+export const getPostById = (id) => posts.find((post) => post.id === id);
 
 export const getAllSnippets = (snippetLength) =>
   posts.map((post) => {
@@ -30,31 +30,4 @@ export const getAllSnippets = (snippetLength) =>
       title: post.title,
       snippet: post.body.substring(0, snippetLength).trim(),
     };
-  }); */
-
-export const getSnippets = async (snippetLength) => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-
-  const posts = await response.json();
-
-  const snippets = posts.map((post) => {
-    return {
-      id: post.id,
-      title: post.title,
-      snippet: post.body.substring(0, snippetLength).trim(),
-    };
   });
-
-  return snippets;
-};
-
-export const findPost = async (id) =>
-  fetch('https://jsonplaceholder.typicode.com/posts/' + id).then((response) =>
-    response.json().then((post) => {
-      return {
-        id: post.id,
-        title: post.title,
-        body: post.body,
-      };
-    })
-  );

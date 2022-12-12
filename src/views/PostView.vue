@@ -6,17 +6,12 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { findPost } from '@/data/db.js';
+import { getPostById } from '@/data/db.js';
 
 const route = useRoute();
-
-const post = ref({});
-
-onMounted(async () => {
-  post.value = await findPost(route.params.id);
-});
+const postId = route.params.id;
+const post = getPostById(postId);
 </script>
 
 <style scoped></style>
