@@ -6,6 +6,20 @@
 </template>
 
 <script setup>
+import { useRoute } from 'vue-router';
+import { findPost } from '@/data/db.js';
+
+const route = useRoute();
+
+const post = await findPost(route.params.id);
+</script>
+
+
+<!-- 
+  Utan experimentella Suspense 
+-->
+
+<!-- <script setup>
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { findPost } from '@/data/db.js';
@@ -17,6 +31,6 @@ const post = ref({});
 onMounted(async () => {
   post.value = await findPost(route.params.id);
 });
-</script>
+</script> -->
 
 <style scoped></style>

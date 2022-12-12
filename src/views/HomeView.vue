@@ -7,15 +7,23 @@
       <h2>
         <router-link :to="'/' + post.id">{{ post.title }}</router-link>
       </h2>
-      <p>
-        <span>{{ post.snippet }}</span>
-        <span>...</span>
-      </p>
+      <p>{{ post.snippet }}...</p>
     </li>
   </ul>
 </template>
 
 <script setup>
+import { RouterLink } from 'vue-router';
+import { getSnippets } from '@/data/db.js';
+
+const posts = await getSnippets(20);
+</script>
+
+<!-- 
+  Utan experimentella Suspense 
+-->
+
+<!-- <script setup>
 import { onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import { getSnippets } from '@/data/db.js';
@@ -25,6 +33,6 @@ const posts = ref([]);
 onMounted(async () => {
   posts.value = await getSnippets(20);
 });
-</script>
+</script> -->
 
 <style scoped></style>

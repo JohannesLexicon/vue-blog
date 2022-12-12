@@ -1,6 +1,13 @@
 <template>
   <TheNavbar />
-  <RouterView />
+  <RouterView v-slot="{ Component }">
+    <template v-if="Component">
+      <Suspense>
+        <component :is="Component"></component>
+        <template #fallback>Loading...</template>
+      </Suspense>
+    </template>
+  </RouterView>
 </template>
 
 <script setup>
