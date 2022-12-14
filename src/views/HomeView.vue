@@ -14,9 +14,9 @@
 
 <script setup>
 import { RouterLink } from 'vue-router';
-import { getSnippets } from '@/data/db.js';
+import { getAllSnippets } from '@/services/db.js';
 
-const posts = await getSnippets(20);
+const posts = await getAllSnippets(20);
 </script>
 
 <!-- 
@@ -26,12 +26,12 @@ const posts = await getSnippets(20);
 <!-- <script setup>
 import { onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
-import { getSnippets } from '@/data/db.js';
+import { getAllSnippets } from '@/services/db.js';
 
 const posts = ref([]);
 
 onMounted(async () => {
-  posts.value = await getSnippets(20);
+  posts.value = await getAllSnippets(20);
 });
 </script> -->
 
