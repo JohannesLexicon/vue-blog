@@ -7,11 +7,11 @@
 
 <script setup>
 import { useRoute } from 'vue-router';
-import { getProductById } from '@/services/db.js';
+import { getPostById } from '@/services/db.js';
 
 const route = useRoute();
 
-const post = await getProductById(route.params.id);
+const post = await getPostById(route.params.id);
 </script>
 
 <!-- 
@@ -21,14 +21,14 @@ const post = await getProductById(route.params.id);
 <!-- <script setup>
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { getProductById } from '@/services/db.js';
+import { getPostById } from '@/services/db.js';
 
 const route = useRoute();
 
 const post = ref({});
 
 onMounted(async () => {
-  post.value = await getProductById(route.params.id);
+  post.value = await getPostById(route.params.id);
 });
 </script> -->
 
