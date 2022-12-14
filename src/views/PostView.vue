@@ -7,7 +7,7 @@
 
 <script setup>
 import { useRoute } from 'vue-router';
-import { getPostById } from '@/data/db.js';
+import { getPostById } from '@/services/db.js';
 
 const route = useRoute();
 const postId = route.params.id;

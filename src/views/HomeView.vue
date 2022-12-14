@@ -14,7 +14,7 @@
 
 <script setup>
 import { RouterLink } from 'vue-router';
-import { getAllSnippets } from '@/data/db.js';
+import { getAllSnippets } from '@/services/db.js';
 
 const posts = getAllSnippets(20);
 </script>
